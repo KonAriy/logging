@@ -1,0 +1,38 @@
+import requests as rq
+import logging
+
+logger = logging.getLogger('RequestsLogger')
+
+
+sites = ['https://www.youtube.com/', 'https://instagram.com', 'https://wikipedia.org', 'https://yahoo.com',
+         'https://yandex.ru', 'https://whatsapp.com', 'https://twitter.com', 'https://amazon.com', 'https://tiktok.com',
+         'https://www.ozon.ru']
+
+
+def log_request(site):
+    try:
+        response = rq.get(site, timeout=5)
+        response.raise_for_status()
+
+        logging.info(f"Успешный ответ: {site}")
+        with open("success_response.log", "a") as f:
+            f.write(f"{site}\n")
+
+    except rq.exceptions.HTTPError as err:
+        logging.warning(f"Некорректный ответ: {site} - {err}")
+        with open("bad_response.log", "a") as f:
+            f.write(f"{site}\n")
+
+    except rq.exceptions.RequestException as err:
+        logging.error(f"Ошибка запроса: {site} - {err}")
+        with open("blockit_response.log", "a") as f:
+            f.write(f"{site}\n")
+
+
+if __name__ == '__main__':
+    logging.basicConfig(filename='RequestsLogger.log', level=logging.INFO)
+    for site in sites:
+        log_request(site)
+
+    # response = rq.get(site, timeout=3)
+    # print(response)
