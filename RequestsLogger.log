@@ -1,0 +1,10 @@
+INFO:root:Успешный ответ: https://www.youtube.com/
+ERROR:root:Ошибка запроса: https://instagram.com - HTTPSConnectionPool(host='instagram.com', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x0000027019DD3E00>, 'Connection to instagram.com timed out. (connect timeout=5)'))
+INFO:root:Успешный ответ: https://wikipedia.org
+INFO:root:Успешный ответ: https://yahoo.com
+INFO:root:Успешный ответ: https://yandex.ru
+INFO:root:Успешный ответ: https://whatsapp.com
+ERROR:root:Ошибка запроса: https://twitter.com - HTTPSConnectionPool(host='twitter.com', port=443): Read timed out. (read timeout=5)
+WARNING:root:Некорректный ответ: https://amazon.com - 503 Server Error: Service Unavailable for url: https://www.amazon.com/
+INFO:root:Успешный ответ: https://tiktok.com
+WARNING:root:Некорректный ответ: https://www.ozon.ru - 403 Client Error: Forbidden for url: https://www.ozon.ru/?__rr=1
